@@ -27,14 +27,19 @@ body{
 .btn:hover{
   background-color: orange;
 }
+.counter{
+  margin:0 auto 10px;
+  width: 140px;
+  background-color: gold;
+  padding:10px;
+  font-size: 30px;
+}
 .cardbox{
   position: relative;
   width:90px;
   height:90px;
   margin:5px;
 float: left;
-
-
 }
 .card{
 position: absolute;
@@ -60,4 +65,16 @@ background:linear-gradient(to bottom right,blue,lightblue);
   backface-visibility: hidden;
   -webkit-transform: rotateY(180deg);
 
+}
+
+.card1{
+position: absolute;
+width: 100%;
+height:100%;
+-webkit-transform-style: preserve-3d;
+-webkit-transition:all 0.7s ease;
+border: 2px #888 solid ;
+}
+.card1:hover{
+  -webkit-transform: rotateY(180deg);
 }
