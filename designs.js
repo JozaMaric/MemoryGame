@@ -1,9 +1,8 @@
-
-
 var arrayOfImages=["heart","heart-black","left","right","ring","ring-2","star","star-red","heart","heart-black","left","right","ring","ring-2","star","star-red"];
 var memory=[];
 var cardId=[];
 var fliped_card=0;
+var moveCounter=0;
 //shufle method
 Array.prototype.shuffle = function(){
     var i = this.length, j, temp;
@@ -14,6 +13,14 @@ Array.prototype.shuffle = function(){
         this[i] = temp;
     }
 }
+function makeBoard(){
+  var output='';
+  for(var i = 0; i < arrayOfImages.length; i++){
+    output +='<div class="cardbox"><div id="card'+i+'" class="card1" "><div class="back"><img src="img/'+arrayOfImages[i]+'.jpg"></div><div class="front"><h1>?</h1></div></div></div>';
+  }
+document.getElementById('memory_board').innerHTML = output;
+}
+
 //starting Game
 function startGame(){
 var fliped_card = 0;//number of open cards
@@ -32,6 +39,9 @@ function flipCard(card,val){
       cardId.push(card.id);
       }
         else if(memory.length==1){
+          moveCounter++;
+          var counter=moveCounter.toString();
+          document.getElementById('counter').innerHTML=counter;
           memory.push(val);
           cardId.push(card.id);
           console.log(cardId);
@@ -42,8 +52,38 @@ function flipCard(card,val){
           cardId=[];
           console.log(fliped_card);
           if(fliped_card===arrayOfImages.length){
-            alert("Congratulation you have won the game");
-            document.getElementById('memory_board').innerHTML="";
+           if (moveCounter<16){
+              alert("Well Done! You have finished game in "+moveCounter+" moves and You have earned Gold Medal!");
+              moveCounter=0;
+              document.getElementById('counter').innerHTML="";
+              document.getElementById('memory_board').innerHTML="";
+              fliped_card=0;
+              makeBoard();
+              }
+           else if (moveCounter<18) {
+              alert("Well Done! You have finished game in "+moveCounter+" moves and You have earned Silver Medal!");
+               moveCounter=0;
+               document.getElementById('counter').innerHTML="";
+               document.getElementById('memory_board').innerHTML="";
+               fliped_card=0;
+               makeBoard();
+          }
+           else if (moveCounter<20) {
+                alert("Well Done! You have finished game in "+moveCounter+" moves and You have earned Bronze Medal!");
+                moveCounter=0;
+                document.getElementById('counter').innerHTML="";
+                document.getElementById('memory_board').innerHTML="";
+                fliped_card=0;
+                makeBoard();
+              }
+            else {
+              alert("Sorry you didn't get the medal");
+              moveCounter=0;
+              document.getElementById('counter').innerHTML="";
+              document.getElementById('memory_board').innerHTML="";
+              fliped_card=0;
+              makeBoard();
+            }
           }
         }
         else{
@@ -53,7 +93,7 @@ function flipCard(card,val){
             memory=[];
             cardId=[];
           }
-          setTimeout(flipBack,500);
+          setTimeout(flipBack,600);
         }
       }
     }
