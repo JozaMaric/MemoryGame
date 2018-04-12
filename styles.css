@@ -1,26 +1,63 @@
 body{
-  background-color: lightblue;
+  background: radial-gradient(#050,#cfc,#080);
   text-align: center;
+
 }
-table{
-  margin:auto;
-  width: 560px;
-  height:560px;
-  border:5px solid green;
-  margin-bottom: 10px;
+#memory_board{
+	background:linear-gradient(to bottom right,black,red,black);
+	border:#999 5px double;
+  border-radius:5%;
+	width:400px;
+	height:400px;
+	padding:24px;
+	margin:auto;
 }
-tr{
-  border:1px solid black;
+.title{
+  color:#0d59c4;
+  font-style:italic;
+  font-size: 40px;
 }
-td{
-  width:70px;
-  border:1px solid black;
+.btn{
+  background-color:#085d75;
+  color:white;
+  width: 180px;
+  padding: 10px;
+  margin:15px;
 }
-button{
-  margin-bottom:15px;
-  padding:20px;
-  background-color:green;
+.btn:hover{
+  background-color: orange;
 }
-button:hover{
-  background-color:gold ;
+.cardbox{
+  position: relative;
+  width:90px;
+  height:90px;
+  margin:5px;
+float: left;
+
+
+}
+.card{
+position: absolute;
+width: 100%;
+height:100%;
+-webkit-transform-style: preserve-3d;
+-webkit-transition:all 0.7s ease;
+border: 2px #888 solid ;
+
+}
+.front{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility: hidden;
+background:linear-gradient(to bottom right,blue,lightblue);
+
+}
+.back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+
 }
