@@ -1,8 +1,9 @@
+/*body styling*/
 body{
   background: radial-gradient(#050,#cfc,#080);
   text-align: center;
 
-}
+}/*styling for board of the game*/
 #memory_board{
 	background:linear-gradient(to bottom right,black,red,black);
 	border:#999 5px double;
@@ -12,11 +13,12 @@ body{
 	padding:24px;
 	margin:auto;
 }
+/*styling title of the game*/
 .title{
-  color:#0d59c4;
+  color:red;
   font-style:italic;
   font-size: 40px;
-}
+}/*button style*/
 .btn{
   background-color:#085d75;
   color:white;
@@ -27,13 +29,17 @@ body{
 .btn:hover{
   background-color: orange;
 }
+/*counter styling*/
 .counter{
   margin:0 auto 10px;
   width: 140px;
-  background-color: gold;
+  background-color: #0d59c4;
   padding:10px;
   font-size: 30px;
+  font-style: italic;
+  color:gold;
 }
+/*styling for fliping card and card itself back and front of card*/
 .cardbox{
   position: relative;
   width:90px;
@@ -66,7 +72,7 @@ background:linear-gradient(to bottom right,blue,lightblue);
   -webkit-transform: rotateY(180deg);
 
 }
-
+/*styling for show of board*/
 .card1{
 position: absolute;
 width: 100%;
