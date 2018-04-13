@@ -1,7 +1,7 @@
-#Memory Game project
+# Memory Game project
 **school-project**
-###Concetration game!
-##Directions
+### Concetration game!
+## Directions
 <ol>
 <li>Before you start the game you can check all cards</li>
 <li>When you open 2 cards that's count like one MOVE</li>
