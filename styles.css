@@ -1,86 +1,91 @@
 /*body styling*/
-body{
-  background: radial-gradient(#050,#cfc,#080);
-  text-align: center;
-
-}/*styling for board of the game*/
-#memory_board{
-	background:linear-gradient(to bottom right,black,red,black);
-	border:#999 5px double;
-  border-radius:5%;
-	width:400px;
-	height:400px;
-	padding:24px;
-	margin:auto;
+ body{
+     background: radial-gradient(#050,#cfc,#080);
+     text-align: center;
+}
+/*styling for board of the game*/
+ #memory_board{
+     background:linear-gradient(to bottom right,black,red,black);
+     border:#999 5px double;
+     border-radius:5%;
+     width:400px;
+     height:400px;
+     padding:24px;
+     margin:auto;
 }
 /*styling title of the game*/
-.title{
-  color:red;
-  font-style:italic;
-  font-size: 40px;
-}/*button style*/
-.btn{
-  background-color:#085d75;
-  color:white;
-  width: 180px;
-  padding: 10px;
-  margin:15px;
+ .title{
+     color:red;
+     font-style:italic;
+     font-size: 40px;
 }
-.btn:hover{
-  background-color: orange;
+/*button style*/
+ .btn{
+     background-color:#085d75;
+     color:white;
+     width: 180px;
+     padding: 10px;
+     margin:15px;
+}
+ .btn:hover{
+     background-color: orange;
 }
 /*counter styling*/
-.counter{
-  margin:0 auto 10px;
-  width: 140px;
-  background-color: #0d59c4;
-  padding:10px;
-  font-size: 30px;
-  font-style: italic;
-  color:gold;
+ .counter{
+     margin:0 auto 10px;
+     width: 140px;
+     background-color: #0d59c4;
+     padding:10px;
+     font-size: 30px;
+     font-style: italic;
+     color:gold;
 }
 /*styling for fliping card and card itself back and front of card*/
-.cardbox{
-  position: relative;
-  width:90px;
-  height:90px;
-  margin:5px;
-float: left;
+ .cardbox{
+     position: relative;
+     width:90px;
+     height:90px;
+     margin:5px;
+     float: left;
 }
-.card{
-position: absolute;
-width: 100%;
-height:100%;
--webkit-transform-style: preserve-3d;
--webkit-transition:all 0.7s ease;
-border: 2px #888 solid ;
-
+ .card{
+     position: absolute;
+     width: 100%;
+     height:100%;
+     -webkit-transform-style: preserve-3d;
+     transform-style: preserve-3d;
+     -webkit-transition:all 0.7s ease;
+     transition:all 0.7s ease;
+     border: 2px #888 solid ;
 }
-.front{
-position:absolute;
-width:100%;
-height:100%;
-backface-visibility: hidden;
-background:linear-gradient(to bottom right,blue,lightblue);
-
+ .front{
+     position:absolute;
+     width:100%;
+     height:100%;
+     backface-visibility: hidden;
+     background:linear-gradient(to bottom right,blue,lightblue);
 }
-.back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  backface-visibility: hidden;
-  -webkit-transform: rotateY(180deg);
-
+ .back{
+     position:absolute;
+     width:100%;
+     height:100%;
+     backface-visibility: hidden;
+     -webkit-transform: rotateY(180deg);
+     transform: rotateY(180deg);
 }
 /*styling for show of board*/
-.card1{
-position: absolute;
-width: 100%;
-height:100%;
--webkit-transform-style: preserve-3d;
--webkit-transition:all 0.7s ease;
-border: 2px #888 solid ;
+ .card1{
+     position: absolute;
+     width: 100%;
+     height:100%;
+     -webkit-transform-style: preserve-3d;
+     transform-style: preserve-3d;
+     -webkit-transition:all 0.7s ease;
+     transition:all 0.7s ease;
+     border: 2px #888 solid ;
 }
-.card1:hover{
-  -webkit-transform: rotateY(180deg);
+ .card1:hover{
+     -webkit-transform: rotateY(180deg);
+     transform: rotateY(180deg);
 }
+ 
