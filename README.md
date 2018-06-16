@@ -16,8 +16,3 @@
 <li>this game is created using pure Java Script ,HTML5 and CSS3 I have made pictures in Paint app for custom look :)</li>
 <li>! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css this styles I have used to clean styles before my custom design so I give credit to maker.</li>
 </ul>
-||||||| merged common ancestors
-</ol>
-=======
-</ol>
->>>>>>> 2c9962dd261c3c8fa6534c294855a35e262428d5
