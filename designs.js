@@ -4,9 +4,15 @@ var memory = [];
 //storing id fo each clicked card
 var cardId = [];
 //storing cards that are flipped;
-var fliped_card = 0;
+var fliped_card = [];
 //storing moves that player has made
 var moveCounter = 0;
+//incrementor
+var timeCounter=0;
+//setTimeout
+var t;
+//storing time
+var time;
 //shufle method
 Array.prototype.shuffle = function() {
     var i = this.length,
@@ -20,86 +26,115 @@ Array.prototype.shuffle = function() {
 };
 //creating board for better look and showing which cards have been used
 function makeBoard() {
+    resetTime();
     var output = '';
+    moveCounter=0;
+    document.getElementById('counter').innerHTML="";
+    document.getElementById('score').innerHTML="";
     for (var i = 0; i < arrayOfImages.length; i++) {
         output += '<div class="cardbox"><div id="card' + i + '" class="card1" "><div class="back"><img src="img/' + arrayOfImages[i] + '.jpg"></div><div class="front"><h1>?</h1></div></div></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
+
 }
 
 //starting Game and replacying show off board with functional one
 function startGame() {
-    var fliped_card = 0; //number of open cards
+    fliped_card =[ ]; //reseting number of open cards
     var output = '';
     arrayOfImages.shuffle();
     for (var i = 0; i < arrayOfImages.length; i++) {
         output += '<div class="cardbox"><div id="card' + i + '" class="card" onclick="flipCard(this,\'' + arrayOfImages[i] + '\')"><div class="back"><img src="img/' + arrayOfImages[i] + '.jpg"></div><div class="front"><h1>?</h1></div></div></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
+    startCount();
+}
+
+//incrementing
+function startCount(){
+      t= setTimeout(function(){
+      timeCounter++;
+      var min=Math.floor(timeCounter/10/60);
+      var sec=Math.floor(timeCounter/10%60);
+      if(min<10){
+        min="0"+min;
+      }
+      if(sec<10){
+        sec="0"+sec;
+      }
+      var ten=timeCounter%10;
+      document.getElementById('timer').innerHTML=min+":"+sec+":0"+ten;
+      time=min+":"+sec+":0"+ten;
+      startCount();
+    },100)
+}
+//resetTime
+function resetTime(){
+  clearTimeout(t);
+  timeCounter=0;
+  document.getElementById('timer').innerHTML="";
 }
 //filp card function
 function flipCard(card, val) {
-    // checking how if memory have more then 2 elelments
+    // checking  if memory have more then 2 elelments
     if (memory.length < 2) {
-        card.style.transform = "rotateY(180deg)"; //fliping card
-        if (memory.length === 0) { //if memory has no elements push val and id of element
+        if (memory.length === 0 && fliped_card.includes(card.id)=== false) { //if memory has no elements push val and id of element
             memory.push(val);
             cardId.push(card.id);
-        } else if (memory.length == 1) { //and if memor has one element
+            card.style.transform = "rotateY(180deg)"; //fliping card
+        } else if (memory.length == 1 &&cardId[0]!==card.id&&fliped_card.includes(card.id)=== false) { //and if memory has one element and that element does not have same id as first one.
             moveCounter++; //start counter
             var counter = moveCounter.toString(); //turn number to string
             document.getElementById('counter').innerHTML = counter; //grabing area for placying output
             memory.push(val); //pushing val and id of 2 card
             cardId.push(card.id);
-            console.log(cardId);
-            console.log(memory);
+            card.style.transform = "rotateY(180deg)"; //fliping card
+            if (moveCounter<15){
+              document.getElementById('score').innerHTML="Gold Position";
+            }
+            else if (moveCounter>16){
+              document.getElementById('score').innerHTML="Silver Position";
+            }  else if (moveCounter>18){
+                document.getElementById('score').innerHTML="Bronze Position";
+              }  else if (moveCounter>19){
+                  document.getElementById('score').innerHTML="Bannana";
+                }
             //checking memory has 2 uniq cards and content of each is same.
             if (memory[0] === memory[1] && cardId[0] !== cardId[1]) {
-                fliped_card += 2; //adding amount of card that has been cleared
-                memory = []; //clearingmemory and id arrays
+                fliped_card.push(cardId[0]);
+                fliped_card.push(cardId[1]); //adding amount of card that has been cleared
+                memory = []; //clearing memory and id arrays
                 cardId = [];
-                console.log(fliped_card);
                 //checking if the board is cleared
-                if (fliped_card === arrayOfImages.length) {
+                if (fliped_card.length === arrayOfImages.length) {
                     //if it is for each number of moves player earned medal if it is too much moves try again
                     if (moveCounter < 15) {
-                        alert("Well Done! You have finished game in " + moveCounter + " moves and You have earned Gold Medal!");
-                        moveCounter = 0; //reseting counter
-                        document.getElementById('counter').innerHTML = ""; //clearing counter area
-                        document.getElementById('memory_board').innerHTML = ""; //clearing memory board
-                        fliped_card = 0; //reseting number of flipped
-                        makeBoard(); //making show board
+                        alert("Well Done! You have finished game in "+time+" and you had " + moveCounter + " moves.This is Gold Medal!Respect! ;)");
                     } else if (moveCounter < 17) {
-                        alert("Well Done! You have finished game in " + moveCounter + " moves and You have earned Silver Medal!");
-                        moveCounter = 0;
-                        document.getElementById('counter').innerHTML = "";
-                        document.getElementById('memory_board').innerHTML = "";
-                        fliped_card = 0;
-                        makeBoard();
+                        alert("Well Done! You have finished game in "+time+" and you had " + moveCounter + " moves. You have earned Silver Medal!Do you wanna try for Gold");
                     } else if (moveCounter < 19) {
-                        alert("Well Done! You have finished game in " + moveCounter + " moves and You have earned Bronze Medal!");
-                        moveCounter = 0;
-                        document.getElementById('counter').innerHTML = "";
-                        document.getElementById('memory_board').innerHTML = "";
-                        fliped_card = 0;
-                        makeBoard();
+                        alert("Well Done! You have finished game in "+time+" and you had " + moveCounter + " moves that is Bronze Medal!Not bad it almost looks like Gold!Try again maybe you will be better next time.");
                     } else {
-                        alert("Sorry you didn't get the medal");
+                        alert("Hmm Sorry but you suck!Huh sombody needs to tell you, but wait!! look on bright side you can always try again :) ");
+                      }
                         moveCounter = 0;
                         document.getElementById('counter').innerHTML = "";
                         document.getElementById('memory_board').innerHTML = "";
                         fliped_card = 0;
+                        document.getElementById('score').innerHTML="";
                         makeBoard();
-                    }
+
                 }
             }
             //if the card is not guessed turn cards back to original position
             else {
                 function flipBack() {
+                  if(cardId[0]!==cardId[1]){
                     document.getElementById(cardId[0]).style.transform = "rotateY(0)";
                     document.getElementById(cardId[1]).style.transform = "rotateY(0)";
                     memory = []; //clearing memory and id arrays to prevent storing values
                     cardId = [];
+                  }
                 }
                 setTimeout(flipBack, 650); //adding wait time of 0,65sec
             }
