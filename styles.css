@@ -20,14 +20,14 @@
      font-size: 40px;
 }
 /*button style*/
- .btn{
+ .button{
      background-color:#085d75;
      color:white;
      width: 180px;
      padding: 10px;
      margin:15px;
 }
- .btn:hover{
+ .button:hover{
      background-color: orange;
 }
 /*counter styling*/
@@ -39,6 +39,26 @@
      font-size: 30px;
      font-style: italic;
      color:gold;
+}
+.timer{
+  position:absolute;
+  top:25%;
+  left:5%;
+  background-color: #0d59c4;
+  padding:10px;
+  font-size: 30px;
+  font-style: italic;
+  color:gold;
+}
+.score{
+  position:absolute;
+  top:15%;
+  left:5%;
+  background-color: #0d59c4;
+  padding:10px;
+  font-size: 30px;
+  font-style: italic;
+  color:gold;
 }
 /*styling for fliping card and card itself back and front of card*/
  .cardbox{
@@ -88,4 +108,3 @@
      -webkit-transform: rotateY(180deg);
      transform: rotateY(180deg);
 }
- 
