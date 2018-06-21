@@ -3,22 +3,22 @@
 
 <head>
     <title>Memory game</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Normalize.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="designs.js"></script>
+
 </head>
 
 <body onload="makeBoard()">
     <h1 class="title">Memory Game</h1>
     <button class="button" onclick="startGame()"><span id="start">Start Game</span></button>
     <button class="button" onclick="makeBoard()"><span id="start">Reset Game</span></button>
-    <h1 class="counter">Moves : <span id="counter"></span></h1>
     <h1 class="timer">Time : <span id="timer"></span></h1>
     <h1 class="score">Score : <span id="score"></span></h1>
+    <h1 class="counter">Moves : <span id="counter"></span></h1>
     <div id='memory_board'>
     </div>
-
+<script src="designs.js"></script>
 </body>
 
 </html>

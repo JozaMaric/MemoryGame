@@ -1,5 +1,8 @@
+/*mobile first*/
 /*body styling*/
  body{
+     width:100%;
+     margin:0 auto;
      background: radial-gradient(#050,#cfc,#080);
      text-align: center;
 }
@@ -8,63 +11,66 @@
      background:linear-gradient(to bottom right,black,red,black);
      border:#999 5px double;
      border-radius:5%;
-     width:400px;
-     height:400px;
+     width:200px;
+     height:200px;
      padding:24px;
      margin:auto;
 }
 /*styling title of the game*/
  .title{
+     width: 100%;
      color:red;
      font-style:italic;
-     font-size: 40px;
+     font-size: 30px;
 }
 /*button style*/
  .button{
      background-color:#085d75;
      color:white;
-     width: 180px;
+     width: 90px;;
      padding: 10px;
      margin:15px;
+     font-size: 10px;
 }
  .button:hover{
      background-color: orange;
 }
 /*counter styling*/
  .counter{
-     margin:0 auto 10px;
-     width: 140px;
+     margin:0 auto 5px;
+     width: 150px;
      background-color: #0d59c4;
-     padding:10px;
-     font-size: 30px;
+     padding:5px;
+     font-size: 16px;
      font-style: italic;
      color:gold;
 }
 .timer{
-  position:absolute;
-  top:25%;
-  left:5%;
+  width:150px;
+  margin:0 auto 5px;
   background-color: #0d59c4;
-  padding:10px;
-  font-size: 30px;
-  font-style: italic;
+  padding:5px;
+  font-size: 16px;
   color:gold;
 }
 .score{
-  position:absolute;
-  top:15%;
-  left:5%;
+  width:150px;
+  margin:0 auto 5px;
   background-color: #0d59c4;
-  padding:10px;
-  font-size: 30px;
+  padding:5px;
+  font-size: 16px;
   font-style: italic;
   color:gold;
 }
 /*styling for fliping card and card itself back and front of card*/
+img{
+width:40px;
+height:40px;
+}
  .cardbox{
      position: relative;
-     width:90px;
-     height:90px;
+     width:40px;
+     height:40px;
      margin:5px;
      float: left;
 }
@@ -84,6 +90,7 @@
      height:100%;
      backface-visibility: hidden;
      background:linear-gradient(to bottom right,blue,lightblue);
+     font-size: 9px;
 }
  .back{
      position:absolute;
@@ -107,4 +114,114 @@
  .card1:hover{
      -webkit-transform: rotateY(180deg);
      transform: rotateY(180deg);
+}
+/*mobile large version*/
+@media only screen and (min-width: 400px) {
+  .button{
+    width: 120px;
+    font-size: 16px;
+  }
+
+  #memory_board{
+      width:240px;
+      height:240px;
+  }
+img{width:50px;
+  height: 50px;
+}
+.cardbox{
+    width:50px;
+    height:50px;
+}
+.front{font-size: 10px;}
+}
+/*tablet version*/
+@media only screen and (min-width: 680px) {
+  .timer{
+  position:absolute;
+  top:30%;
+  left:0;
+  width:160px;
+  font-size:20px;
+  }
+  .score{
+    position:absolute;
+    top:40%;
+    left:0;
+    width:160px;
+    font-size:20px;
+
+  }
+  .counter{
+    width:160px;
+    font-size:20px;
+  }
+  #memory_board{
+      width:280px;
+      height:280px;
+  }
+img{width:60px;
+  height: 60px;
+}
+.cardbox{
+    width:60px;
+    height:60px;
+}
+.front{font-size: 13px;
+}
+}
+/*desktop*/
+@media only screen and (min-width: 900px) {
+  .timer{
+  position:absolute;
+  top:30%;
+  left:2%;
+  width:180px;
+  font-size:25px;
+  }
+  .score{
+    position:absolute;
+    top:40%;
+    left:2%;
+    width:180px;
+    font-size:25px;
+  }
+  .button{
+    width:180px;
+    font-size:25px;
+  }
+  .counter{
+    width:180px;
+    font-size:25px;
+  }
+  #memory_board{
+      width:400px;
+      height:400px;
+  }
+img{width:90px;
+  height: 90px;
+}
+.cardbox{
+    width:90px;
+    height:90px;
+}
+.front{font-size: 19px;
+}
+}
+@media only screen and (min-width: 1200px) {
+  .timer{
+  left:5%;
+  width:300px;
+  font-size:28px;
+  }
+  .score{
+    left:5%;
+    width:300px;
+    font-size:28px;
+}
+.counter{
+  font-size:28px;
+}
+.title{
+  font-size: 35px;
 }

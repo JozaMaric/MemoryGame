@@ -1,21 +1,22 @@
-var arrayOfImages = ["heart", "heart-black", "left", "right", "ring", "ring-2", "star", "star-red", "heart", "heart-black", "left", "right", "ring", "ring-2", "star", "star-red"];
+let arrayOfImages = ["heart", "heart-black", "left", "right", "ring", "ring-2", "star", "star-red", "heart", "heart-black", "left", "right", "ring", "ring-2", "star", "star-red"];
 //storing memory when element is clicked;
-var memory = [];
+let memory = [];
 //storing id fo each clicked card
-var cardId = [];
+let cardId = [];
 //storing cards that are flipped;
-var fliped_card = [];
+let fliped_card = [];
 //storing moves that player has made
-var moveCounter = 0;
+let moveCounter = 0;
 //incrementor
-var timeCounter=0;
+let timeCounter=0;
 //setTimeout
-var t;
+let t;
 //storing time
-var time;
+let time;
 //shufle method
+let output="";
 Array.prototype.shuffle = function() {
-    var i = this.length,
+    let i = this.length,
         j, temp;
     while (--i > 0) {
         j = Math.floor(Math.random() * (i + 1));
@@ -27,11 +28,11 @@ Array.prototype.shuffle = function() {
 //creating board for better look and showing which cards have been used
 function makeBoard() {
     resetTime();
-    var output = '';
+     output = '';
     moveCounter=0;
     document.getElementById('counter').innerHTML="";
     document.getElementById('score').innerHTML="";
-    for (var i = 0; i < arrayOfImages.length; i++) {
+    for (let i = 0; i < arrayOfImages.length; i++) {
         output += '<div class="cardbox"><div id="card' + i + '" class="card1" "><div class="back"><img src="img/' + arrayOfImages[i] + '.jpg"></div><div class="front"><h1>?</h1></div></div></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
@@ -41,9 +42,9 @@ function makeBoard() {
 //starting Game and replacying show off board with functional one
 function startGame() {
     fliped_card =[ ]; //reseting number of open cards
-    var output = '';
+    output = '';
     arrayOfImages.shuffle();
-    for (var i = 0; i < arrayOfImages.length; i++) {
+    for (let i = 0; i < arrayOfImages.length; i++) {
         output += '<div class="cardbox"><div id="card' + i + '" class="card" onclick="flipCard(this,\'' + arrayOfImages[i] + '\')"><div class="back"><img src="img/' + arrayOfImages[i] + '.jpg"></div><div class="front"><h1>?</h1></div></div></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
@@ -54,15 +55,15 @@ function startGame() {
 function startCount(){
       t= setTimeout(function(){
       timeCounter++;
-      var min=Math.floor(timeCounter/10/60);
-      var sec=Math.floor(timeCounter/10%60);
+      let min=Math.floor(timeCounter/10/60);
+      let sec=Math.floor(timeCounter/10%60);
       if(min<10){
         min="0"+min;
       }
       if(sec<10){
         sec="0"+sec;
       }
-      var ten=timeCounter%10;
+      let ten=timeCounter%10;
       document.getElementById('timer').innerHTML=min+":"+sec+":0"+ten;
       time=min+":"+sec+":0"+ten;
       startCount();
@@ -84,7 +85,7 @@ function flipCard(card, val) {
             card.style.transform = "rotateY(180deg)"; //fliping card
         } else if (memory.length == 1 &&cardId[0]!==card.id&&fliped_card.includes(card.id)=== false) { //and if memory has one element and that element does not have same id as first one.
             moveCounter++; //start counter
-            var counter = moveCounter.toString(); //turn number to string
+            let counter = moveCounter.toString(); //turn number to string
             document.getElementById('counter').innerHTML = counter; //grabing area for placying output
             memory.push(val); //pushing val and id of 2 card
             cardId.push(card.id);
